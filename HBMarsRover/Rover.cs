@@ -40,9 +40,20 @@ namespace HBMarsRover
 
             bool isCorrectLenght = positions.Length > 2;
             bool isXInt = int.TryParse(positions[0], out X);
+            if (!isXInt || Convert.ToInt32(positions[0]) < 0)
+            {
+                throw new Exception("Invalid X position.");
+            }
             bool isYInt = int.TryParse(positions[1], out Y);
+            if (!isYInt || Convert.ToInt32(positions[1]) < 0)
+            {
+                throw new Exception("Invalid Y position.");
+            }
             bool isDirectionChar = Enum.TryParse(positions[2], out Direction);
-
+            if (!isDirectionChar)
+            {
+                throw new Exception("Invalid Direction.");
+            }
             return isCorrectLenght == false
                     | isXInt == false
                     | isYInt == false
