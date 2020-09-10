@@ -76,5 +76,36 @@ namespace Tests
             Assert.That(ex.Message == "Invalid command.");
 
         }
+
+        [Test]
+        public void Should_ThrowException_ForInvalidPosition()
+        {
+            // Arrange
+            string mapSize = "5 5";
+            string initialPosition = "3 -3 E";
+
+            // Act
+            Rover rover = new Rover(mapSize);
+            var ex = Assert.Throws<Exception>(() => { rover.SetPosition(initialPosition); });
+
+            // Assert
+            Assert.That(ex.Message == "Invalid Y position.");
+
+        }
+
+        [Test]
+        public void Should_ThrowException_ForInvalidDirection()
+        {
+            // Arrange
+            string mapSize = "5 5";
+            string initialPosition = "3 3 Y";
+
+            // Act
+            Rover rover = new Rover(mapSize);
+            var ex = Assert.Throws<Exception>(() => { rover.SetPosition(initialPosition); });
+
+            // Assert
+            Assert.That(ex.Message == "Invalid Direction.");
+        }
     }
 }
