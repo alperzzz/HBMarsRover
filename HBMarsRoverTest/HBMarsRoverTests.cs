@@ -12,7 +12,7 @@ namespace Tests
         }
 
         [Test]
-        public void Test1()
+        public void FinalPositionTest1()
         {
             // Arrange
             string mapSize = "5 5";
@@ -29,7 +29,7 @@ namespace Tests
         }
 
         [Test]
-        public void Test2()
+        public void FinalPositionTest2()
         {
             // Arrange
             string mapSize = "5 5";
