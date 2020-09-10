@@ -29,7 +29,11 @@
         },
         "frameworks": {
           "netcoreapp2.1": {
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\GithubRepos\\HBMarsRover\\HBMarsRover\\HBMarsRover.csproj": {
+                "projectPath": "C:\\GithubRepos\\HBMarsRover\\HBMarsRover\\HBMarsRover.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -57,6 +61,57 @@
             "nunit": {
               "target": "Package",
               "version": "[3.10.1, )"
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    },
+    "C:\\GithubRepos\\HBMarsRover\\HBMarsRover\\HBMarsRover.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\GithubRepos\\HBMarsRover\\HBMarsRover\\HBMarsRover.csproj",
+        "projectName": "HBMarsRover",
+        "projectPath": "C:\\GithubRepos\\HBMarsRover\\HBMarsRover\\HBMarsRover.csproj",
+        "packagesPath": "C:\\Users\\ALPER DESKTOP\\.nuget\\packages\\",
+        "outputPath": "C:\\GithubRepos\\HBMarsRover\\HBMarsRover\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\ALPER DESKTOP\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.1": {
+          "dependencies": {
+            "Microsoft.NETCore.App": {
+              "target": "Package",
+              "version": "[2.1.0, )",
+              "autoReferenced": true
             }
           },
           "imports": [

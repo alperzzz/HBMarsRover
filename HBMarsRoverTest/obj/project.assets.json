@@ -1645,6 +1645,19 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XPath.XmlDocument.dll": {}
         }
+      },
+      "HBMarsRover/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.1",
+        "dependencies": {
+          "Microsoft.NETCore.App": "2.1.0"
+        },
+        "compile": {
+          "bin/placeholder/HBMarsRover.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/HBMarsRover.dll": {}
+        }
       }
     }
   },
@@ -5743,10 +5756,16 @@
         "system.xml.xpath.xmldocument.4.3.0.nupkg.sha512",
         "system.xml.xpath.xmldocument.nuspec"
       ]
+    },
+    "HBMarsRover/1.0.0": {
+      "type": "project",
+      "path": "../HBMarsRover/HBMarsRover.csproj",
+      "msbuildProject": "../HBMarsRover/HBMarsRover.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.1": [
+      "HBMarsRover >= 1.0.0",
       "Microsoft.NET.Test.Sdk >= 15.8.0",
       "Microsoft.NETCore.App >= 2.1.0",
       "NUnit3TestAdapter >= 3.10.0",
@@ -5782,7 +5801,11 @@
       },
       "frameworks": {
         "netcoreapp2.1": {
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\GithubRepos\\HBMarsRover\\HBMarsRover\\HBMarsRover.csproj": {
+              "projectPath": "C:\\GithubRepos\\HBMarsRover\\HBMarsRover\\HBMarsRover.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

@@ -1,14 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace HBMarsRover
 {
     public class Rover
     {
-        public char Direction;
+        public Direction Direction;
 
         public int X;
         public int Y;
@@ -16,6 +14,7 @@ namespace HBMarsRover
         private int _width;
         private int _height;
 
+        
         public Rover(string size)
         {
             string[] sizeArray = size.Split(' ');
@@ -23,8 +22,8 @@ namespace HBMarsRover
                 throw new Exception("Invalid size input.");
             bool isWidthInt = int.TryParse(sizeArray[0], out _width);
             bool isHeightInt = int.TryParse(sizeArray[1], out _height);
-            if (isHeightInt == false | isWidthInt == false)
-                throw new Exception("Invalid Size.");
+            if (isHeightInt == false | isWidthInt == false | _width<1 | _height < 1)
+                throw new Exception("Invalid size.");
         }
 
         public void SetPosition(string position)
@@ -43,7 +42,7 @@ namespace HBMarsRover
             bool isCorrectLenght = positions.Length > 2;
             bool isXInt = int.TryParse(positions[0], out X);
             bool isYInt = int.TryParse(positions[1], out Y);
-            bool isDirectionChar = char.TryParse(positions[2], out Direction);
+            bool isDirectionChar = Enum.TryParse(positions[2], out Direction);
 
             return isCorrectLenght == false
                     | isXInt == false
@@ -59,10 +58,14 @@ namespace HBMarsRover
             char[] commandArray = commands.ToUpper().ToCharArray();
             foreach (var command in commandArray)
             {
-                if (command == 'M')
+                if (command.ToString() == Movement.M.ToString())
                     this.Move();
+                else if (command.ToString() == Movement.L.ToString())
+                    this.Turn(Movement.L);
+                else if (command.ToString() == Movement.R.ToString())
+                    this.Turn(Movement.R);
                 else
-                    this.Turn(command);
+                    throw new Exception("Invalid command.");
             }
         }
 
@@ -83,32 +86,32 @@ namespace HBMarsRover
 
             switch (this.Direction)
             {
-                case 'N':
+                case Direction.N:
                     this.Y += 1;
                     break;
 
-                case 'E':
+                case Direction.E:
                     this.X += 1;
                     break;
 
-                case 'S':
+                case Direction.S:
                     this.Y -= 1;
                     break;
 
-                case 'W':
+                case Direction.W:
                     this.X -= 1;
                     break;
             }
         }
 
-        private void Turn(char way)
+        private void Turn(Movement way)
         {
             switch (way)
             {
-                case 'L':
+                case Movement.L:
                     this.TurnLeft();
                     break;
-                case 'R':
+                case Movement.R:
                     this.TurnRight();
                     break;
                 default:
@@ -119,17 +122,17 @@ namespace HBMarsRover
         {
             switch (Direction)
             {
-                case 'W':
-                    this.Direction = 'S';
+                case Direction.W:
+                    this.Direction = Direction.S;
                     break;
-                case 'S':
-                    this.Direction = 'E';
+                case Direction.S:
+                    this.Direction = Direction.E;
                     break;
-                case 'E':
-                    this.Direction = 'N';
+                case Direction.E:
+                    this.Direction = Direction.N;
                     break;
-                case 'N':
-                    this.Direction = 'W';
+                case Direction.N:
+                    this.Direction = Direction.W;
                     break;
             }
         }
@@ -137,17 +140,17 @@ namespace HBMarsRover
         {
             switch (Direction)
             {
-                case 'W':
-                    this.Direction = 'N';
+                case Direction.W:
+                    this.Direction = Direction.N;
                     break;
-                case 'N':
-                    this.Direction = 'E';
+                case Direction.N:
+                    this.Direction = Direction.E;
                     break;
-                case 'E':
-                    this.Direction = 'S';
+                case Direction.E:
+                    this.Direction = Direction.S;
                     break;
-                case 'S':
-                    this.Direction = 'W';
+                case Direction.S:
+                    this.Direction = Direction.W;
                     break;
             }
         }
