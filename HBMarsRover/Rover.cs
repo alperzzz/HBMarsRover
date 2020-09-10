@@ -11,18 +11,17 @@ namespace HBMarsRover
         public int X;
         public int Y;
 
-        private int _width;
-        private int _height;
-
-        
+        public Plateau _plateau;
+                
         public Rover(string size)
         {
+            _plateau = new Plateau();
             string[] sizeArray = size.Split(' ');
             if (sizeArray.Length != 2)
                 throw new Exception("Invalid size input.");
-            bool isWidthInt = int.TryParse(sizeArray[0], out _width);
-            bool isHeightInt = int.TryParse(sizeArray[1], out _height);
-            if (isHeightInt == false | isWidthInt == false | _width<1 | _height < 1)
+            bool isWidthInt = int.TryParse(sizeArray[0], out _plateau._width);
+            bool isHeightInt = int.TryParse(sizeArray[1], out _plateau._height);
+            if (isHeightInt == false | isWidthInt == false | _plateau._width < 1 | _plateau._height < 1)
                 throw new Exception("Invalid size.");
         }
 
@@ -76,8 +75,8 @@ namespace HBMarsRover
 
         private bool ValidatePosition()
         {
-            bool validX = X < _width;
-            bool validY = Y < _height;
+            bool validX = X < _plateau._width;
+            bool validY = Y < _plateau._height;
             return validX && validY;
         }
 
