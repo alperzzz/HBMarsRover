@@ -122,5 +122,23 @@ namespace Tests
             // Assert
             Assert.That(ex.Message == "Invalid Direction.");
         }
+
+        [Test]
+        public void Should_ThrowException_ForInvalidPositionInput()
+        {
+            // Arrange
+            string mapSize = "5 5";
+            string initialPosition = "3 3 Y A";
+
+            // Act
+            Rover rover = new Rover(mapSize);
+            var ex = Assert.Throws<Exception>(() => { rover.SetPosition(initialPosition); });
+
+            // Assert
+            Assert.That(ex.Message == "Invalid position input.");
+        }
+
+
+        
     }
 }
