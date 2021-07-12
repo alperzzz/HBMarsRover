@@ -138,7 +138,34 @@ namespace Tests
             Assert.That(ex.Message == "Invalid position input.");
         }
 
+        [Test]
+        public void Rover_Should_TurnLeft()
+        {
+            // Arrange
+            string mapSize = "5 5";
+            string initialPosition = "3 3 E";
+            string finalPosition = "3 3 N";
+            string command = "L";
 
-        
+            // Act
+            Rover rover = new Rover(mapSize);
+            rover.SetPosition(initialPosition);
+            rover.CommandExecute(command);
+            // Assert
+            Assert.AreEqual(rover.GetPosition(), finalPosition);
+        }
+        [Test]
+        public void Rover_Should_SetPosition()
+        {
+            // Arrange
+            string mapSize = "5 5";
+            string initialPosition = "3 3 E";
+
+            // Act
+            Rover rover = new Rover(mapSize);
+            rover.SetPosition(initialPosition);
+            // Assert
+            Assert.AreEqual(rover.GetPosition(), initialPosition);
+        }
     }
 }
